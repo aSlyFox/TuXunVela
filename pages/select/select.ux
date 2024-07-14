@@ -1,0 +1,65 @@
+<template>
+  <div class="page">
+    <image class="title" src="../index/imgs/title.png"></image>
+    <image class="back" src="../about/imgs/back.png" onClick="routeBack"></image>
+    <div style="background-color:#262626;position:relative;border-radius:27px;width:90%;display: flex; flex-direction: column;margin-top:80px" onclick="routeExam">
+      <div style="width:80%;left:20px;margin-top:20px"><text style="font-size:32px;color:white;margin-bottom:5px">国家知识学科-选择题</text></div>
+      <div style="width:80%;left:20px;margin-bottom:20px"><text style="font-size:25px;color:rgba(255, 255, 255, 0.6)">ps：题目难度会越来越高哦~</text></div>
+      <image src="./imgs/arrow.png" style="position:absolute;bottom:43px;left:380px"></image>
+    </div>
+    <div style="background-color:#262626;position:relative;border-radius:27px;width:90%;display: flex; flex-direction: column;margin-top:15px" onclick="routeAbout">
+      <div style="width:80%;left:20px;margin-top:20px;margin-bottom:20px"><text style="font-size:32px;color:white;">更多题库</text></div>
+      <image src="./imgs/arrow.png" style="position:absolute;bottom:22px;left:380px"></image>
+    </div>
+  </div>
+</template>
+
+<script>
+ import router from "@system.router"
+ export default {
+  routeAbout() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.push({
+      uri: "/pages/about"
+    })
+  },
+  routeExam() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.push({
+      uri: "/pages/exam"
+    })
+  },
+  
+    routeBack() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.back({
+      uri: "/pages/index"
+    })
+  }
+ }
+</script>
+
+<style>
+.page {
+  background-color:black;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  align-items: center;
+  position: absolute;
+  /* left: 128px; */
+  top: 22px;
+  width: 80px;
+  height: 33.87px;
+  opacity: 1;
+}
+.back {
+    position: absolute;
+    left: 30px;
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+}
+</style>

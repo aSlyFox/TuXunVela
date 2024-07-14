@@ -1,0 +1,111 @@
+<template>
+  <div class="page">
+    <image class="holo" src="./imgs/circle.png"></image>
+    <image class="title" src="./imgs/title.png"></image>
+    <image class="logo" src="./imgs/logo.png"></image>
+    <text class="tips">探索世界，找到你</text>
+    <div class="btn" style="justify-content: center" onClick="routeSelect"><text>进入游戏</text></div>
+    <div class="menu" onclick="routeabout"><text style="font-size:25px;font-weight: bold;color:white">···</text></div>
+  </div>
+</template>
+
+<script>
+import router from "@system.router"
+import configuration from "@system.configuration"
+
+export default {
+  // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
+  private: {
+
+  },
+
+  routeabout() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.push({
+      uri: "/pages/about"
+    })
+  },
+  routeSelect() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.push({
+      uri: "/pages/select"
+    })
+  }
+}
+</script>
+
+<style>
+.holo {
+  z-index: -1;
+  position: absolute;
+  align-content: center;
+  top: 20px;
+  width: 1000px;
+  height: 1000px;
+}
+
+.page {
+  background-color:black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  align-items: center;
+  position: absolute;
+  /* left: 128px; */
+  top: 22px;
+  width: 80px;
+  height: 33.87px;
+  opacity: 1;
+}
+
+.logo {
+  align-items: center;
+  position: absolute;
+  /* left: 93px; */
+  top: 120px;
+  width: 150px;
+  height: 150px;
+  border-radius: 27px;
+  opacity: 1;
+}
+
+.btn {
+  z-index: 2;
+  align-content: center;
+  width: 324px;
+  height: 92px;
+  left: 0px;
+  top: 150px;
+  margin-top: 20px;
+  border-radius: 35px;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.tips {
+  align-items: center;
+  position: absolute;
+  /* left: 72px; */
+  top: 287px;
+  height: 32px;
+  opacity: 1;
+  font-family: MiSans;
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.menu {
+  position: absolute;
+  right: -10px;
+  top: 19px;
+  width: 40px;
+  height: 40px;
+  transform: rotate(90deg);
+  opacity: 1;
+}
+</style>

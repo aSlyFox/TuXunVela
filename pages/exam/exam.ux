@@ -1,0 +1,55 @@
+<template>
+  <div class="page">
+    <text class="title">第n题</text>
+    <image class="back" src="../about/imgs/back.png" onClick="routeBack"></image>
+    <div style="position:relative;width:90%;display: flex; flex-direction: column;margin-top:80px" onclick="routeExam"></div>
+        <div style="width:87%"><text style="font-size:32px;color:white;margin-bottom:10px">我是题目1234567890-987654321</text></div>
+        <div style="display: flex; flex-direction: column;width:90%">
+          <text if="{{selected==1}}" style="background-color: #66CCFF;" class="selection2">选项1</text>
+          <text class="selection2" else onclick="changeColor(1)">选项1</text>
+          <text if="{{selected==2}}" style="background-color: #66CCFF;" class="selection2">选项2</text>
+          <text class="selection2" else onclick="changeColor(2)">选项2</text>
+          <text if="{{selected==3}}" style="background-color: #66CCFF;" class="selection2">选项3</text>
+          <text class="selection2" else onclick="changeColor(3)">选项3</text>
+          <text if="{{selected==4}}" style="background-color: #66CCFF;" class="selection2">选项4</text>
+          <text class="selection2" else onclick="changeColor(4)">选项4</text>
+    </div>
+  </div>
+</template>
+
+<script src="./exam.js"></script>
+
+<style>
+
+.selection2{
+  padding-top:30px;padding-bottom:40px;padding-left:20px;color:white;
+  background-color:#262626;
+  width:100%;
+  border-radius:27px;
+  margin-bottom:10px;
+}
+.page {
+  background-color:black;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back {
+    position: absolute;
+    left: 30px;
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+}
+
+.title {
+  color:white;
+  align-items: center;
+  position: absolute;
+  font-size:32px;
+  top: 22px;
+  margin-top:0px;
+  opacity: 1;
+}
+</style>

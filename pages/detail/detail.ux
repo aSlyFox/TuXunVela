@@ -1,0 +1,32 @@
+<template>
+  <div class="page">
+    <text class="title">关于图寻</text>
+  </div>
+</template>
+
+<script>
+export default {
+  private: {
+
+  }
+}
+</script>
+
+<style>
+.page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  align-items: center;
+  position: absolute;
+
+  top: 22px;
+  width: 80px;
+  height: 33.87px;
+  opacity: 1;
+}
+
+</style>

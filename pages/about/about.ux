@@ -1,0 +1,82 @@
+<template>
+    <div class="page">
+        <text class="title">关于图寻</text>
+        <image class="back" src="./imgs/back.png" onClick="routeBack"></image>
+        <image class="logo" src="../index/imgs/logo.png"></image>
+        <text class="infofont1" style="color: white">图寻</text>
+        <text class="infofont2" style="color: grey">v1.0beta1</text>
+        <text style="color:grey;font-size:32px;left: 20px;top: 182px;position: absolute;">开发者</text>
+        <text style="color:white;font-size:32px;left: 20px;top: 224px;position: absolute;">@狐菌 @LUEE @此间ZY</text>
+        <text style="color:grey;font-size:32px;left: 20px;top: 308px;position: absolute;">更多玩法与题库请访问</text>
+        <text style="color:white;font-size:32px;left: 20px;top: 350px;position: absolute;">tuxun.fun</text>
+    </div>
+</template>
+
+<script>
+import router from "@system.router"
+import configuration from "@system.configuration"
+
+export default {
+
+  routeBack() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.back({
+    //   uri: "/pages/index"
+    })
+  }
+}
+</script>
+
+<style>
+.page {
+    background-color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    height: 34px;
+    color: white;
+    font-size: 30px;
+}
+
+.back {
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+}
+
+.logo {
+    position: absolute;
+    left: 23px;
+    top: 76px;
+    width: 96px;
+    height: 96px;
+    border-radius: 27px;
+    opacity: 1;
+}
+
+.infofont1 {
+    position: absolute;
+    font-family: MiSans;
+    font-size: 32px;
+    font-weight: 500;
+    left: 134px;
+    top: 76px;
+}
+.infofont2{
+    position: absolute;
+    font-size: 32px;
+    font-weight: 500;
+    font-family: MiSans;
+    left: 134px;
+    top: 127px;
+}
+</style>
