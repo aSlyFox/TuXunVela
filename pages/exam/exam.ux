@@ -3,17 +3,22 @@
     <text class="title">第{{num}}题</text>
     <image class="back" src="../about/imgs/back.png" onClick="routeBack"></image>
     <div style="position:relative;width:90%;display: flex; flex-direction: column;margin-top:80px" onclick="routeExam"></div>
-        <div style="width:87%"><text style="font-size:32px;color:white;margin-bottom:10px">{{q}}</text></div>
-        <div style="display: flex; flex-direction: column;width:90%">
-          <text if="{{selected==1}}" style="background-color: #66CCFF;" class="selection2">{{opt1}}</text>
-          <text class="selection2" else onclick="changeColor(1)">{{opt1}}</text>
-          <text if="{{selected==2}}" style="background-color: #66CCFF;" class="selection2">{{opt2}}</text>
-          <text class="selection2" else onclick="changeColor(2)">{{opt2}}</text>
-          <text if="{{selected==3}}" style="background-color: #66CCFF;" class="selection2">{{opt3}}</text>
-          <text class="selection2" else onclick="changeColor(3)">{{opt3}}</text>
-          <text if="{{selected==4}}" style="background-color: #66CCFF;" class="selection2">{{opt4}}</text>
-          <text class="selection2" else onclick="changeColor(4)">{{opt4}}</text>
+    <div style="width:87%;flex-direction: column;margin-bottom:10px">
+      <text style="font-size:32px;color:white;">{{q}}</text>
+      <img src="/pages/exam/{{qimg}}" if="{{qimg}}" style="object-fit:contain;width:100%">
     </div>
+    <div style="display: flex; flex-direction: column;width:90%">
+      <text if="{{selected==1}}" style="background-color: #66CCFF;" class="selection2">{{opt1}}</text>
+      <text class="selection2" else onclick="changeColor(1)">{{opt1}}</text>
+      <text if="{{selected==2}}" style="background-color: #66CCFF;" class="selection2">{{opt2}}</text>
+      <text class="selection2" else onclick="changeColor(2)">{{opt2}}</text>
+      <text if="{{selected==3}}" style="background-color: #66CCFF;" class="selection2">{{opt3}}</text>
+      <text class="selection2" else onclick="changeColor(3)">{{opt3}}</text>
+      <text if="{{selected==4}}" style="background-color: #66CCFF;" class="selection2">{{opt4}}</text>
+      <text class="selection2" else onclick="changeColor(4)">{{opt4}}</text>
+    </div>
+    <text if="{{selected}}" style="color:{{anscolor}};width:87%;margin-bottom:10px">{{isright}} 答案：{{answer}}</text>
+    <text if="{{selected}}" style="background-color:#0D84FF;border-radius: 99px;width: 418px;height: 92px;text-align:center;margin-bottom:20px">下一题</text>
   </div>
 </template>
 

@@ -1,6 +1,5 @@
 import router from "@system.router"
-
-var that
+var that,q
 var xxx
 // 定义结构体
 function Question(question, answer, imgurl,sa,sb,sc,sd) {
@@ -29,7 +28,7 @@ ExamPaper.push(new Question("以下不说西班牙语的国家是?", 4, " ","A �
 ExamPaper.push(new Question("以下不属于加勒比海岛国的是?", 2, " ","A 牙买加","B 瓦努阿图","C 巴巴多斯","D 古巴"));
 ExamPaper.push(new Question("人口750万，海岸线360千米，面积1113km^2的城市，大概率位于以下哪个国家？", 1, " ","A 中国","B 日本","C 美国","D 英国"));
 ExamPaper.push(new Question("下列选项中与蒙古国陆地边境线长度最接近的国家是?", 3, " ","A 加拿大","B 阿尔及利亚","C 智利","D 马里"));
-ExamPaper.push(new Question("根据图片提示猜省份", 2, "./imgs/lvl13.png","A 上海","B 澳门","C 广东","D 天津"));
+ExamPaper.push(new Question("根据图片提示猜省份", 2,"/imgs/lvl13.png","A 上海","B 澳门","C 广东","D 天津"));
 
 
 
@@ -46,15 +45,18 @@ export default{
     num:0,
     q:"",
     qimg:"",
+    imgshow:false,
     opt1:"",
     opt2:"",
     opt3:"",
     opt4:"",
-    answer:1
+    answer:1,
+    isright:"",
+    anscolor:"#00B578"
   },
   onInit(){
     that=this
-    this.displayExam(0)
+    this.displayExam(12)
   }
   ,routeBack() {
     // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
@@ -64,18 +66,41 @@ export default{
 
     changeColor(num){
       this.selected=num
+      if(num==q.answer){
+        this.isright="正确"
+        this.anscolor="#00B578"
+      }else{
+        this.isright="错误"
+        this.anscolor="#FA5151"
+      }
     },
     displayExam(level){
       this.num=level+1
-      let q=ExamPaper[level]
+      q=ExamPaper[level]
       this.q=q.question
       this.opt1=q.sa
       this.opt2=q.sb
       this.opt3=q.sc
       this.opt4=q.sd
-      this.answer=q.answer
+      switch(q.answer){
+        case 1:
+          that.answer="A"
+          break
+        case 2:
+          that.answer="B"
+          break
+        case 3:
+          that.answer="c"
+          break
+        case 4:
+          that.answer="D"
+          break
+        default:
+          that.answer="???"
+          break
+      }
       this.qimg=q.imgurl
-      console.log(q)
+      
     }
   }
   
