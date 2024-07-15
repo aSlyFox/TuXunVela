@@ -32,15 +32,9 @@ ExamPaper.push(new Question("根据图片提示猜省份", 2,"/imgs/lvl13.png","
 
 
 
-// 遍历结构体数组并显示题目
-for (var i = 0; i < ExamPaper.length; i++) {
-
-
-}
-
-
 export default{
   private:{
+    level:0,
     selected:0,
     num:0,
     q:"",
@@ -56,9 +50,9 @@ export default{
   },
   onInit(){
     that=this
-    this.displayExam(12)
-  }
-  ,routeBack() {
+    this.displayExam(0)
+  },
+  routeBack() {
     // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
     router.back({
       uri: "/pages/select"
@@ -74,8 +68,11 @@ export default{
         this.anscolor="#FA5151"
       }
     },
+
+    
     displayExam(level){
       this.num=level+1
+      this.selected=null
       q=ExamPaper[level]
       this.q=q.question
       this.opt1=q.sa
@@ -90,7 +87,7 @@ export default{
           that.answer="B"
           break
         case 3:
-          that.answer="c"
+          that.answer="C"
           break
         case 4:
           that.answer="D"
@@ -98,9 +95,12 @@ export default{
         default:
           that.answer="???"
           break
-      }
+      } 
       this.qimg=q.imgurl
-      
+      window.scroll(0,0)
+      if(this.num==14){
+        router.push({uri:"/pages/result"})
+      }
     }
   }
   
