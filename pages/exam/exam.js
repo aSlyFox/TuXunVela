@@ -1,6 +1,6 @@
 import router from "@system.router"
 
-var cb="#66ccff"
+var that
 var xxx
 // 定义结构体
 function Question(question, answer, imgurl,sa,sb,sc,sd) {
@@ -42,9 +42,21 @@ for (var i = 0; i < ExamPaper.length; i++) {
 
 export default{
   private:{
-    selected:1
+    selected:0,
+    num:0,
+    q:"",
+    qimg:"",
+    opt1:"",
+    opt2:"",
+    opt3:"",
+    opt4:"",
+    answer:1
   },
-    routeBack() {
+  onInit(){
+    that=this
+    this.displayExam(0)
+  }
+  ,routeBack() {
     // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
     router.back({
       uri: "/pages/select"
@@ -54,7 +66,16 @@ export default{
       this.selected=num
     },
     displayExam(level){
-
+      this.num=level+1
+      let q=ExamPaper[level]
+      this.q=q.question
+      this.opt1=q.sa
+      this.opt2=q.sb
+      this.opt3=q.sc
+      this.opt4=q.sd
+      this.answer=q.answer
+      this.qimg=q.imgurl
+      console.log(q)
     }
   }
   
